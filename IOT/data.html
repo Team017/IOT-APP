@@ -1,0 +1,187 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: #0078D4;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        nav {
+            background: #005bb5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            background: #003f7f;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: #f9f9f9;
+        }
+        .hero h1 {
+            font-size: 2.8em;
+            color: #0078D4;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        #sensor-data {
+            text-align: center;
+            padding: 20px;
+            background: #f1f1f1;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #0078D4;
+            color: white;
+        }
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 0 auto;
+            width: 80%;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #0078D4;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kelompok Stephen 17</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./app.html">Graph</a></li>
+            <li><a href="./data.html">Data</a></li>
+            <li><a href="./maps.html">Maps</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <h1>Water Detection Project</h1>
+        <p>Explore real-time monitoring solutions designed to make your work efficient and reliable.</p>
+    </section>
+
+    <section id="sensor-data">
+        <h2>Real-time Sensor Data</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>pH</th>
+                        <th>Turbidity</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table-body">
+                    <!-- Data will be appended here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Replace with your ThingSpeak API key and channel ID
+        const API_KEY = "ZMJDBJN3EGYJU9UD";
+        const CHANNEL_ID = "2756583"; // Replace with your actual channel ID
+        const FIELD_PH = 1; // Field number for pH sensor
+        const FIELD_TURBIDITY = 2; // Field number for turbidity sensor
+
+        function fetchData() {
+            const url = `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?api_key=${API_KEY}&results=1`;
+
+            $.getJSON(url, function(data) {
+                if (data && data.feeds && data.feeds.length > 0) {
+                    const latestEntry = data.feeds[0];
+                    const timestamp = latestEntry.created_at || "No timestamp";
+                    const phValue = latestEntry[`field${FIELD_PH}`] || "No data";
+                    const turbidityValue = latestEntry[`field${FIELD_TURBIDITY}`] || "No data";
+
+                    // Append the new data to the table
+                    const rowHtml = `<tr>
+                        <td>${new Date(timestamp).toLocaleString()}</td>
+                        <td>${phValue}</td>
+                        <td>${turbidityValue}</td>
+                    </tr>`;
+
+                    const $tableBody = $("#data-table-body");
+                    $tableBody.append(rowHtml);
+
+                    // Ensure only 20 entries are shown
+                    if ($tableBody.children("tr").length > 20) {
+                        $tableBody.children("tr").first().remove();
+                    }
+                }
+            }).fail(function() {
+                console.error("Error fetching data from ThingSpeak");
+            });
+        }
+
+        // Initial fetch and periodic updates
+        fetchData();
+        setInterval(fetchData, 600000); // Update every 10 minutes
+    </script>
+
+    <footer>
+        <p>&copy; Kelompok 17. All rights reserved.</p>
+    </footer>
+</body>

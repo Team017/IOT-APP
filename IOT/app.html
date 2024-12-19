@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: #0078D4;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        nav {
+            background: #005bb5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            background: #003f7f;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: #f9f9f9;
+        }
+        .hero h1 {
+            font-size: 2.8em;
+            color: #0078D4;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #0078D4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #005bb5;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px 20px;
+            background: #fff;
+        }
+        .feature {
+            text-align: center;
+            max-width: 450px;
+            flex: 1 1 45%;
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .feature h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #0078D4;
+        }
+        iframe {
+            width: 100%;
+            height: 260px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #0078D4;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kelompok Stephen 17</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./app.html">Graph</a></li>
+            <li><a href="./data.html">Data</a></li>
+            <li><a href="./maps.html">Maps</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <h1>Water Detection Project</h1>
+        <p>Explore real-time monitoring solutions designed to make your work efficient and reliable.</p>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <h3>pH Gauge</h3>
+            <iframe src="https://thingspeak.com/channels/2756583/widgets/980591" title="pH Gauge"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2756583/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&timescale=10&type=line" title="pH Gauge Chart"></iframe>
+        </div>
+        <div class="feature">
+            <h3>Turbidity Gauge</h3>
+            <iframe src="https://thingspeak.com/channels/2756583/widgets/980596" title="Turbidity Gauge"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2756583/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15" title="Turbidity Gauge Chart"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Kelompok 17. All rights reserved.</p>
+    </footer>
+</body>
+</html>

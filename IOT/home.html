@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #0078D4;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        nav {
+            background: #005bb5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            background: #003f7f;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: #f9f9f9;
+            border-bottom: 2px solid #ddd;
+        }
+        .hero h1 {
+            font-size: 2.8em;
+            color: #0078D4;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .intro {
+            padding: 30px;
+            text-align: center;
+            background: #fff;
+        }
+        .intro p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f4f4f9;
+        }
+        .team-member {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .team-member img {
+            width: 100%;
+            height: auto;
+            max-width: 200px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .team-member h3 {
+            font-size: 1.5em;
+            color: #0078D4;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+        footer nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        footer nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kelompok Stephen 17</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./app.html">Graph</a></li>
+            <li><a href="./data.html">Data</a></li>
+            <li><a href="./maps.html">Maps</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <h1>Water Detection Project</h1>
+        <p>Explore real-time monitoring solutions designed to make your work efficient and reliable.</p>
+    </section>
+    <section class="intro">
+        <p>"Selamat datang di platform kami, tempat inovasi bertemu dengan kemudahan. Alat kami dirancang khusus untuk mendeteksi pH dan tingkat kekeruhan pada air secara akurat, memberikan solusi cerdas untuk memantau kualitas air Anda. Data yang dikumpulkan akan otomatis diunggah ke website ini, memungkinkan Anda untuk memantau dan menganalisis kondisi air kapan saja dan di mana saja dengan mudah."</p>
+    </section>
+    <section class="team">
+        <div class="team-member">
+            <img src="Images/Jason.jpg" alt="Team Member 1">
+            <h3>Jason</h3>
+        </div>
+        <div class="team-member">
+            <img src="Images/Kevin Chandra.png" alt="Team Member 2">
+            <h3>Kevin Chandra Wijaya</h3>
+        </div>
+        <div class="team-member">
+            <img src="Images/Stephen.jpg" alt="Team Member 3">
+            <h3>Stephen</h3>
+        </div>
+        <div class="team-member">
+            <img src="Images/Stefan Yeo.jpeg" alt="Team Member 4">
+            <h3>Stefan Yeo</h3>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Kelompok 17. All rights reserved.</p>
+    </footer>
+</body>
+</html>
